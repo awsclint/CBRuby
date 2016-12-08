@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo Installing RSpec...
-      - gem install rspec.broke
+      - gem install rspec
   build:
     commands:
       - echo Build started on `date`
