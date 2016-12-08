@@ -10,6 +10,7 @@ phases:
       - echo Build started on `date`
       - echo Compiling the Ruby code...
       - rspec HelloWorld_spec.rb
+      - echo $Name
   post_build:
     commands:
       - echo Build completed on `date`
