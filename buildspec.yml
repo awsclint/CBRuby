@@ -11,6 +11,7 @@ phases:
       - echo Compiling the Ruby code...
       - rspec HelloWorld_spec.rb
       - echo $Name
+      - echo $OS
   post_build:
     commands:
       - echo Build completed on `date`
