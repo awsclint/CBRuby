@@ -12,6 +12,8 @@ phases:
       - rspec HelloWorld_spec.rb
       - echo $Name
       - echo $OS
+      - aws s3 mb codebuidtest986
+      - aws s3 ls
   post_build:
     commands:
       - echo Build completed on `date`
