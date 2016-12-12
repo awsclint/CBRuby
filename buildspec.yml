@@ -10,7 +10,7 @@ phases:
       - echo `curl -i http://sgtest-env.us-east-1.elasticbeanstalk.com/`
       - IP=$(curl http://checkip.amazonaws.com)/32
       - echo $IP
-      - aws ec2 authorize-security-group-ingress --group-id sg-fdc0a387 --protocol tcp --port 80 --cidr $IP
+      - aws ec2 authorize-security-group-ingress --group-id sg-f196ce8c --protocol tcp --port 80 --cidr $IP
       - echo `curl -i http://sgtest-env.us-east-1.elasticbeanstalk.com/`
   build:
     commands:
@@ -24,7 +24,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws ec2 revoke-security-group-ingress --group-name awseb-e-wugb5fbs4r-stack-AWSEBLoadBalancerSecurityGroup-1H9OJ69127ZPS --protocol tcp --port 80 --cidr $IP
+      - aws ec2 revoke-security-group-ingress --group-name awseb-e-2bvw385mbb-stack-AWSEBLoadBalancerSecurityGroup-13NC27HU823O0 --protocol tcp --port 80 --cidr $IP
 artifacts:
   files:
     - HelloWorld.rb
