@@ -7,8 +7,7 @@ phases:
       - gem install rspec
   pre_build:
     commands:
-      - echo `curl http://sgtest-env.us-east-1.elasticbeanstalk.com/`
-      - IP.sh
+      - bash IP.sh
       - echo `curl http://sgtest-env.us-east-1.elasticbeanstalk.com/`
   build:
     commands:
