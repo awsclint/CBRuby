@@ -7,11 +7,9 @@ phases:
       - gem install rspec
   pre_build:
     commands:
-      - echo `curl -i http://sgtest-env.us-east-1.elasticbeanstalk.com/`
-      - IP=$(curl http://checkip.amazonaws.com)/32
-      - echo $IP
-      - aws ec2 authorize-security-group-ingress --group-id sg-f196ce8c --protocol tcp --port 80 --cidr $IP
-      - echo `curl -i http://sgtest-env.us-east-1.elasticbeanstalk.com/`
+      - echo `curl http://sgtest-env.us-east-1.elasticbeanstalk.com/`
+      - ./IP.sh
+      - echo `curl http://sgtest-env.us-east-1.elasticbeanstalk.com/`
   build:
     commands:
       - echo Build started on `date`
@@ -19,8 +17,6 @@ phases:
       - rspec HelloWorld_spec.rb
       - echo $Name
       - echo $OS
-      - aws s3 mb s3://codebuidtest987
-      - echo `aws s3 ls` 
   post_build:
     commands:
       - echo Build completed on `date`
@@ -28,3 +24,4 @@ phases:
 artifacts:
   files:
     - HelloWorld.rb
+    - IP.sh
